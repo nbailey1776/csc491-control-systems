@@ -43,10 +43,12 @@ Hardcopy available on [Amazon](https://www.amazon.com/Introduction-Feedback-Cont
 
 # Homework Solutions
 
-This Gitlab account contains complete python, matlab, and simulink solutions to the three design problems presented in the book.  We will be actively maintaining the Python solutions.
+This Gitlab account contains complete Python, Matlab, and Simulink solutions to the three design problems presented in the book.  We will be actively maintaining the Python solutions.
 
 # Hummingbird Lab
 The lab description and assignments are described in the hummingbird lab manual, which can be accessed below.  During Winter 2023, the manual will be under construction and will be updated frequently.  You should re-download the manual before doing each lab.
+
+For Fall 2024, simply go to Learning Suite for the most recent version of the PDF Lab Manual.
 
 [PDF Lab Manual](https://drive.google.com/file/d/1-W2Zm1npRpV0NH1-vQXf0qYudbe9F8Ed/view?usp=sharing)
 
@@ -56,15 +58,22 @@ Template files for the hummingbird hardware lab are contained in the GitHub dire
 
 ## Prerequisites
 
-You will need to install a version of python 3 on your computer.  Download the latest version of python from 
-[https://www.python.org](https://www.python.org).
-
-You will also want to install an IDE.  We recommend either:
+You will want to install an IDE.  We recommend either:
 - [PyCharm](https://www.jetbrains.com/pycharm/) or
 - [VS Code](https://code.visualstudio.com)
 
+If Pycharm is chosen, see [the following link](https://docs.cs.byu.edu/doku.php?id=aquiring-free-jetbrains-student-license) for information on how to get a free JetBrains license through BYU.
+
+See the Controls setup PDF found in this repo (Controls_code_setup.pdf) for how to set everything up. 
+
+Note that if PyCharm was downloaded instead of VS Code, the section on downloading VSCode in Controls_code_setup.pdf can be skipped.
+
 ## Python packages
-Install the following python packages:
+
+> This section can be skipped if you followed Controls_code_setup.pdf 
+
+
+The following python packages will need to be installed for this class:
 - numpy
 - slipy
 - matplotlib
@@ -74,21 +83,24 @@ Install the following python packages:
 
 In linux or macos, you can install a python package using the command
 
-pip3 install numpy
+pip3 install _name_of_package_
 
-If you are using pycharm, open Settings>Project:python>Python Interpreter.  Make sure that the latest python interpreter is selected at the top, and then click "+" do add a package and search for the needed package.  For example, my system is set up as shown below.
+If you are using Pycharm, the following options are availab;e:
+
+1. Open Settings>Project:python>Python Interpreter.  Make sure that the latest python interpreter is selected at the top, and then click "+" do add a package and search for the needed package.  For example:
 
 ![Alt text](_images/pythonpackages.png?raw=true "Title")
 
-Alternatively, you may use this requirements file to download all the necessary dependencies: [requirements.txt](https://drive.google.com/file/d/1--3DUmJV08HGFZlCZeH6IYGUhyRb31Z3/view?usp=sharing)
+2. Alternatively, you may use this requirements file to download all the necessary dependencies.
 
-To install these dependencies, simply use the command:
+> To install these dependencies, simply use the command:
 
-pip3 install -r requirements.txt
+> pip3 install -r requirements.txt
+
+> NOTE: Pycharm sets up a virtual environment for you, so if you are using Pycharm, instructions on _venv_ can be skipped.
 
 # Jupyter Notebooks
 
 The Jupyter notebooks in this repository were developed by Dr. Robert Leishman at Air Force Institute of Technology.
 
 They are designed to be run in google colab.
-
