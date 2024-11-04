@@ -66,7 +66,7 @@ If Pycharm is chosen, see [the following link](https://docs.cs.byu.edu/doku.php?
 
 See the Controls setup PDF found in this repo (Controls_code_setup.pdf) for how to set everything up. 
 
->  The LateX project folder has also been included for easy editing later.
+>  The LateX project folder has also been included for easy editing later, as "Controls_code_setup_latex".
 
 Note that if PyCharm was downloaded instead of VS Code, the section on downloading VSCode in Controls_code_setup.pdf can be skipped.
 
