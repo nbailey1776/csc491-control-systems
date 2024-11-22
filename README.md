@@ -6,6 +6,7 @@
 [Timothy W. McLain](http://me.byu.edu/faculty/timmclain)
 [Cammy Peterson](https://ece.byu.edu/directory/cammy-peterson)
 [Marc Killpack](https://www.me.byu.edu/directory/marc-killpack)
+[James Usevitch]()
 
 Hardcopy available on [Amazon](https://www.amazon.com/Introduction-Feedback-Control-Design-Studies/dp/1073396711/ref=sr_1_8?crid=36TN6HXOVZL2J&keywords=introduction+to+feedback+control&qid=1563317351&s=gateway&sprefix=introduction+to+feedba%2Caps%2C158&sr=8-8)
 
@@ -69,6 +70,10 @@ See the Controls setup PDF found in this repo (Controls_code_setup.pdf) for how 
 >  The LateX project folder has also been included for easy editing later, as "Controls_code_setup_latex".
 
 Note that if PyCharm was downloaded instead of VS Code, the section on downloading VSCode in Controls_code_setup.pdf can be skipped.
+
+## Python Introduction
+
+See [this link](https://acme.byu.edu/00000179-afb2-d74f-a3ff-bfbb15a50000/pythonessentials-pdf) for a great introduction from BYU ACME's program.
 
 ## Python packages
 
