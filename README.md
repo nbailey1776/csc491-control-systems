@@ -76,6 +76,8 @@ Note that if PyCharm was downloaded instead of VS Code, the section on downloadi
 
 See [this link](https://acme.byu.edu/00000179-afb2-d74f-a3ff-bfbb15a50000/pythonessentials-pdf) for a great introduction from BYU ACME's program.
 
+More Python tutorial can be found on [the main ACME website](https://foundations-of-applied-mathematics.github.io/).
+
 ## Python packages
 
 > This section can be skipped if you followed Controls_code_setup.pdf 
