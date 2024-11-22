@@ -48,6 +48,10 @@ This GitHub account contains complete Python solutions to the three design probl
 
 Matlab and Simulink solutions are also available upon request.
 
+Note that homework solutions may need to be slightly altered to fit the current semester's code. For example, in Winter 2024, the code base was altered so that the ``dataplotter`` function needed to have its reference signals thrown in at the end of the list of declared variables instead of in the middle, as in previous years. 
+
+
+
 # Hummingbird Lab
 The lab description and assignments are described in the hummingbird lab manual, which can be accessed below.  The manual will be updated as needed. See also the Learning Suite copy if there is a discrepancy.
 
