@@ -6,7 +6,7 @@
 [Timothy W. McLain](http://me.byu.edu/faculty/timmclain)
 [Cammy Peterson](https://ece.byu.edu/directory/cammy-peterson)
 [Marc Killpack](https://www.me.byu.edu/directory/marc-killpack)
-[James Usevitch]()
+[James Usevitch](https://ece.byu.edu/directory/james-usevitch)
 
 Hardcopy available on [Amazon](https://www.amazon.com/Introduction-Feedback-Control-Design-Studies/dp/1073396711/ref=sr_1_8?crid=36TN6HXOVZL2J&keywords=introduction+to+feedback+control&qid=1563317351&s=gateway&sprefix=introduction+to+feedba%2Caps%2C158&sr=8-8)
 
@@ -44,12 +44,13 @@ Hardcopy available on [Amazon](https://www.amazon.com/Introduction-Feedback-Cont
 
 # Homework Solutions
 
-This Gitlab account contains complete Python, Matlab, and Simulink solutions to the three design problems presented in the book.  We will be actively maintaining the Python solutions.
+This GitHub account contains complete Python solutions to the three design problems presented in the book.  We will be actively maintaining the Python solutions.
+
+Matlab and Simulink solutions are also available upon request.
 
 # Hummingbird Lab
-The lab description and assignments are described in the hummingbird lab manual, which can be accessed below.  During Winter 2023, the manual will be under construction and will be updated frequently.  You should re-download the manual before doing each lab.
+The lab description and assignments are described in the hummingbird lab manual, which can be accessed below.  The manual will be updated as needed. See also the Learning Suite copy if there is a discrepancy.
 
-For Fall 2024, simply go to Learning Suite for the most recent version of the PDF Lab Manual.
 
 [PDF Lab Manual](https://drive.google.com/file/d/1-W2Zm1npRpV0NH1-vQXf0qYudbe9F8Ed/view?usp=sharing)
 
@@ -65,11 +66,11 @@ You will want to install an IDE.  We recommend either:
 
 If Pycharm is chosen, see [the following link](https://docs.cs.byu.edu/doku.php?id=aquiring-free-jetbrains-student-license) for information on how to get a free JetBrains license through BYU.
 
-See the Controls setup PDF found in this repo (Controls_code_setup.pdf) for how to set everything up. 
+See the Controls setup PDF found in this repo (``Controls_code_setup.pdf``) for how to set everything up. 
 
->  The LateX project folder has also been included for easy editing later, as "Controls_code_setup_latex".
+> For TAs and professors: The LateX project folder has also been included for easy editing later, as "Controls_code_setup_latex".
 
-Note that if PyCharm was downloaded instead of VS Code, the section on downloading VSCode in Controls_code_setup.pdf can be skipped.
+Note that if PyCharm was downloaded instead of VS Code, the section on downloading VSCode in ``Controls_code_setup.pdf`` can be skipped.
 
 ## Python Introduction
 
@@ -111,3 +112,13 @@ If you are using Pycharm, the following options are availab;e:
 The Jupyter notebooks in this repository were developed by Dr. Robert Leishman at Air Force Institute of Technology.
 
 They are designed to be run in google colab.
+
+# Final Exam
+
+The Final Exam is a comprehensive coding final.
+
+### Practice Final
+
+A practice final, created by Dr. Beard and updated in Winter 2023, is found in this repository.
+
+The final exam is almost exactly like the practice exam and so we hope that giving you a similar exam will help you study for the final. The point is that those who figure out how to do the practice exam will do just fine on the final.

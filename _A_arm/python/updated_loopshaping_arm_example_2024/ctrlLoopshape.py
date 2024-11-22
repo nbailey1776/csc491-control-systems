@@ -1,25 +1,36 @@
 import numpy as np
-import param as P
-import loopshape_example as L
-from control import tf, c2d
+from control import c2d, tf
+import armParam as P
+import loopShaping as L
 
-class ctrlLoop:
+class ctrlLoopshape:
     def __init__(self, method="state_space"):
         if method == "state_space":
             self.prefilter = transferFunction(L.F_num, L.F_den, P.Ts)
             self.control = transferFunction(L.C_num, L.C_den, P.Ts)
-
         elif method == "digital_filter":
-            self.prefilter = discreteFilter(L.F.num, L.F.den, P.Ts)
-            self.control = discreteFilter(L.C.num, L.C.den, P.Ts)
+            self.prefilter = digitalFilter(L.F_num, L.F_den, P.Ts)
+            self.control = digitalFilter(L.C_num, L.C_den, P.Ts)
+        self.method = method
 
-    def update(self, r, y):
-         # prefilter the reference
-        r_filtered = r #self.prefilter.update(r)
-        # define error and update controller
-        error = r_filtered - y
-        u = self.control.update(error)
-        return u
+    def update(self, theta_r, y):
+        theta = y[0][0]
+        # prefilter the reference
+        theta_r_filtered = self.prefilter.update(theta_r)
+         # filtered error signal
+        error = theta_r_filtered - theta
+        # update controller
+        tau_tilde = self.control.update(error)
+        # compute feedback linearization torque tau_fl
+        tau_fl = P.m * P.g * (P.ell / 2.0) * np.cos(theta)
+        # compute total torque
+        tau = saturate(tau_fl + tau_tilde, P.tau_max)
+        return tau
+
+def saturate(u, limit):
+    if abs(u) > limit:
+        u = limit * np.sign(u)
+    return u
 
 
 class transferFunction:
@@ -60,16 +71,12 @@ class transferFunction:
 
     def update(self, u):
         x = self.rk4(u)
-        y = self.h(u)
+        y = self.C @ x + self.D * u
         return y.item(0)
 
     def f(self, state, u):
         xdot = self.A @ state + self.B * u
         return xdot
-
-    def h(self, u):
-        y = self.C @ self.state + self.D * u
-        return y
 
     def rk4(self, u):
         # Integrate ODE using Runge-Kutta 4 algorithm
@@ -77,13 +84,14 @@ class transferFunction:
         F2 = self.f(self.state + self.Ts / 2 * F1, u)
         F3 = self.f(self.state + self.Ts / 2 * F2, u)
         F4 = self.f(self.state + self.Ts * F3, u)
-        self.state = self.state + self.Ts / 6 * (F1 + 2*F2 + 2*F3 + F4)
+        self.state += self.Ts / 6 * (F1 + 2 * F2 + 2 * F3 + F4)
         return self.state
+    
 
-class discreteFilter:
+class digitalFilter:
     def __init__(self, num, den, Ts):
         self.Ts = Ts
-        sys = tf(num, den)
+        sys = tf(num[0], den[0])
         sys_d = c2d(sys, Ts, method='tustin')
         self.den_d = sys_d.den[0][0]
         self.num_d = sys_d.num[0][0]
@@ -91,9 +99,6 @@ class discreteFilter:
         self.prev_filt_input = np.zeros(len(self.den_d))
 
     def update(self, u):
-        '''
-            Discrete filter implementation for loopshaping controllers
-        '''
         # update vector with filter inputs (u)
         self.prev_filt_input = np.hstack(([u], self.prev_filt_input[0:-1]))
         # use filter coefficients to calculate new output (y)
