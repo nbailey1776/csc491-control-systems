@@ -7,7 +7,7 @@ from numpy import log10, ones, size, divide, logspace, square, sqrt
 from control import bode, tf
 
 
-def spec_noise(gamma_n, omega_n, dB_flag=True):
+def spec_noise(*, gamma_n, omega_n, dB_flag=True):
     # Plot noise specification
     # attenuate noise by gamma_n for all noise signals
     # with frequency content above omega_n
@@ -23,14 +23,14 @@ def spec_noise(gamma_n, omega_n, dB_flag=True):
         #                     edgecolors='red', label='noise spec')
 
 
-def spec_disturbance(gamma_d, omega_d, plant, dB_flag=True):
+def spec_disturbance(*, gamma_d, omega_d, system, dB_flag=True):
     # Plot input disturbance specification
     # reject input disturbances by gamma_d for all disturbance signals
     # with frequency content below omega_d
     # plant is the transfer function
     fig = plt.gcf()
     w = logspace(log10(omega_d)-2, log10(omega_d));
-    mag, phase, omega = bode(plant, dB=False, omega=w, plot=False)
+    mag, phase, omega = bode(system, dB=False, omega=w, plot=False)
     if dB_flag == False:
         fig.axes[0].plot(w, mag/gamma_d,'g')
         # fig.axes[0].scatter(omega_d, 1. / gamma_d * mag, facecolors='none', 
@@ -41,7 +41,7 @@ def spec_disturbance(gamma_d, omega_d, plant, dB_flag=True):
         #                     edgecolors='green', label='$d_{in}$ spec')
 
 
-def spec_track_ref(gamma_r, omega_r, dB_flag=True):
+def spec_track_ref(*, gamma_r, omega_r, dB_flag=True):
     # Plot reference tracking specification
     # track references with error gamma_r for all references signals
     # with frequency content below omega_r
@@ -57,7 +57,7 @@ def spec_track_ref(gamma_r, omega_r, dB_flag=True):
         #                     edgecolors=[1, 0, 1], label='ref tracking spec')
 
 
-def spec_track_step(gamma_r, dB_flag=True):
+def spec_track_step(*, gamma_r, dB_flag=True):
     # Plot step tracking specification
     # track step input with error gamma_r 
     # PC must be above spec as omega -> 0
@@ -73,7 +73,7 @@ def spec_track_step(gamma_r, dB_flag=True):
         #          '.', color=[0, 0, 1], label = 'step tracking spec')
 
 
-def spec_track_ramp(gamma_r, dB_flag=True):
+def spec_track_ramp(*, gamma_r, dB_flag=True):
     # Plot ramp tracking specification
     # track ramp input with error gamma_r 
     # PC must be above spec as omega -> 0
@@ -89,7 +89,7 @@ def spec_track_ramp(gamma_r, dB_flag=True):
         #          '.', color=[0, 0, 1], label = 'ramp tracking spec')
 
 
-def spec_track_parabola(gamma_r, dB_flag=True):
+def spec_track_parabola(*, gamma_r, dB_flag=True):
     # Plot parabola tracking specification
     # track parabola input with error gamma_r 
     # PC must be above spec as omega -> 0
