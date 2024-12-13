@@ -145,7 +145,7 @@ Make sure you know the difference between these 3 terms.
 
 And again, review the answer keys to chapters 4 and 6.
 
-2. **"If number 1 is true, why _are_ my rise times and zeta values different from the answer key? How did they find those rise times and zetas?"** This is a legitimate question that has baffled many students who have not only used the correct equations to find their starting rise times and omegas, but also take the extra time to not simply assume that ζ (zeta) = 0.707 and ω = 2.2/t<sub>r</sub> . Some answer keys show  ζ = 0.95. 
+2. **"If number 1 is true, why _are_ my rise times and zeta values different from the answer key? How did they find those rise times and zetas?"** This is a legitimate question that has baffled many students who have not only used the correct equations to find their starting rise times and omegas, but also took the extra time to not simply assume that ζ (zeta) = 0.707 and ω = 2.2/t<sub>r</sub> . Some answer keys show  ζ = 0.95. 
 
 The short answer? Tuning.
 
