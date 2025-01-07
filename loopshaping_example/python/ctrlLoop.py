@@ -1,6 +1,7 @@
 import numpy as np
 import param as P
 import loopshape_example as L
+from control import tf, c2d
 
 class ctrlLoop:
     def __init__(self, method="state_space"):
