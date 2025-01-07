@@ -29,16 +29,15 @@ Ts =   # sample time for simulation
 t_plot =  # the plotting and animation is updated at this rate
 
 # saturation limits
-fmax =   # Max Force, N
+F_max =   # Max Force, N
 
 # dirty derivative parameters
 # sigma =   # cutoff freq for dirty derivative
-# beta =  # dirty derivative gain
 
 # equilibrium force
 # Fe =
 
 # mixing matrix
-unmixing = np.array([[1.0, 1.0], [d, -d]]) # converts fl and fr (LR) to force and torque (FT)
+unmixing = np.array([[1.0, 1.0], [-d, d]]) # converts fl and fr (LR) to force and torque (FT)
 mixing = np.linalg.inv(unmixing) # converts force and torque (FT) to fl and fr (LR) 
 

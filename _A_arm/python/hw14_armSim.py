@@ -38,11 +38,11 @@ while t < P.t_end:  # main simulation loop
         # update controller
         u, xhat, dhat = controller.update(r, y + n)  
         y = arm.update(u + d)  # propagate system
-        t = t + P.Ts  # advance time by Ts
+        t += P.Ts  # advance time by Ts
 
     # update animation and data plots
     animation.update(arm.state)
-    dataPlot.update(t, r, arm.state, u)
+    dataPlot.update(t, arm.state, u, r)
     dataPlotObserver.update(t, arm.state, xhat, d, dhat)
     plt.pause(0.0001)  
 

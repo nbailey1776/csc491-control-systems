@@ -1,3 +1,5 @@
+import matplotlib
+matplotlib.use('tkAgg')
 import matplotlib.pyplot as plt
 import numpy as np
 import pendulumParam as P
@@ -13,8 +15,8 @@ pendulum = pendulumDynamics(alpha = 0.2)
 controller = ctrlDisturbanceObserver()
 reference = signalGenerator(amplitude=0.5, frequency=0.04)
 disturbance = signalGenerator(amplitude=0.5, frequency=.1)
-noise_z = signalGenerator(amplitude=0.01)
-noise_th = signalGenerator(amplitude=0.01)
+noise_z = signalGenerator(amplitude=0.001)
+noise_th = signalGenerator(amplitude=0.001)
 
 # instantiate the simulation plots and animation
 dataPlot = dataPlotter()
@@ -36,11 +38,11 @@ while t < P.t_end:  # main simulation loop
         n = np.array([[noise_z.random(t)], [noise_th.random(t)]])
         u, xhat, dhat = controller.update(r, y + n)
         y = pendulum.update(u + d)  # propagate system
-        t = t + P.Ts  # advance time by Ts
+        t += P.Ts  # advance time by Ts
 
     # update animation and data plots
     animation.update(pendulum.state)
-    dataPlot.update(t, r, pendulum.state, u)
+    dataPlot.update(t, pendulum.state, u, r)
     dataPlotObserver.update(t, pendulum.state, xhat, d, dhat)
     plt.pause(0.0001)
 

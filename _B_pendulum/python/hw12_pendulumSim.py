@@ -7,10 +7,10 @@ from pendulumDynamics import pendulumDynamics
 from ctrlStateFeedbackIntegrator import ctrlStateFeedbackIntegrator
 
 # instantiate pendulum, controller, and reference classes
-pendulum = pendulumDynamics()
+pendulum = pendulumDynamics(0.2)
 controller = ctrlStateFeedbackIntegrator()
 reference = signalGenerator(amplitude=0.5, frequency=0.04)
-disturbance = signalGenerator(amplitude=2.1)
+disturbance = signalGenerator(amplitude=0.5)
 
 # instantiate the simulation plots and animation
 dataPlot = dataPlotter()
@@ -28,10 +28,10 @@ while t < P.t_end:  # main simulation loop
         x = pendulum.state
         u = controller.update(r, x)  # update controller
         y = pendulum.update(u + d)  # propagate system
-        t = t + P.Ts  # advance time by Ts
+        t += P.Ts  # advance time by Ts
     # update animation and data plots
     animation.update(pendulum.state)
-    dataPlot.update(t, r, pendulum.state, u)
+    dataPlot.update(t, pendulum.state, u, r)
     plt.pause(0.0001)  # the pause causes the figure to be displayed during the simulation
 
 # Keeps the program from closing until the user presses a button.

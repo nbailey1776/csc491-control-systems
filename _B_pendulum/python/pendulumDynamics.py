@@ -41,6 +41,9 @@ class pendulumDynamics:
         thetadot = state[3][0]
         F = u
         # The equations of motion.
+        # print("here")
+        # print(u.item(0))
+        # exit()
         M = np.array([[self.m1 + self.m2,
                        self.m1 * (self.ell/2.0) * np.cos(theta)],
                        [self.m1 * (self.ell/2.0) * np.cos(theta),
@@ -50,6 +53,7 @@ class pendulumDynamics:
                        + F - self.b*zdot],
                        [self.m1 * self.g * (self.ell/2.0)
                         * np.sin(theta)]])
+        # print(M.shape,C.shape) 
         tmp = np.linalg.inv(M) @ C
         zddot = tmp[0][0]
         thetaddot = tmp[1][0]
@@ -70,7 +74,7 @@ class pendulumDynamics:
         F2 = self.f(self.state + self.Ts / 2 * F1, u)
         F3 = self.f(self.state + self.Ts / 2 * F2, u)
         F4 = self.f(self.state + self.Ts * F3, u)
-        self.state += self.Ts / 6 * (F1 + 2 * F2 + 2 * F3 + F4)
+        self.state = self.state + self.Ts / 6 * (F1 + 2*F2 + 2*F3 + F4)
 
         
 def saturate(u, limit):

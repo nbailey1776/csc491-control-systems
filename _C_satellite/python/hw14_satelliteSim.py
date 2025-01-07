@@ -14,8 +14,8 @@ controller = ctrlDisturbanceObserver()
 reference = signalGenerator(amplitude=15.0*np.pi/180.0,
                             frequency=0.03)
 disturbance = signalGenerator(amplitude=1.0)
-noise_phi = signalGenerator(amplitude=0.01)
-noise_th = signalGenerator(amplitude=0.01)
+noise_phi = signalGenerator(amplitude=0.001)
+noise_th = signalGenerator(amplitude=0.001)
 
 # instantiate the simulation plots and animation
 dataPlotObserver = dataPlotterObserver()
@@ -41,11 +41,11 @@ while t < P.t_end:  # main simulation loop
         # update controller
         u, xhat, dhat = controller.update(r, y + n)  
         y = satellite.update(u + d)  # propagate system
-        t = t + P.Ts  # advance time by Ts
+        t += P.Ts  # advance time by Ts
 
     # update animation and data plots
     animation.update(satellite.state)
-    dataPlot.update(t, r, satellite.state, u)
+    dataPlot.update(t, satellite.state, u, r)
     dataPlotObserver.update(t, satellite.state, xhat, d, dhat)
     plt.pause(0.0001)  
 
