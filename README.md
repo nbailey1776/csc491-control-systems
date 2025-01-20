@@ -2,7 +2,6 @@ This repository is a (slightly) customized version of the [BYU Controlbook](http
 
 ---
 # **Setting up Controlbook Code and Python Environment**
----
 
 # Introduction
 
