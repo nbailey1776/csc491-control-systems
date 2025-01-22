@@ -25,10 +25,12 @@ while t < P.t_end:  # main simulation loop
     ref = np.array([[0], [0], [0]])
     force = 0
     torque = 0
+    # convert force and torque to pwm values
+    pwm = P.mixing @ np.array([[force], [torque]]) / P.km
     animation.update(t, state)
-    dataPlot.update(t, state, ref, force, torque)
+    dataPlot.update(t, state, pwm)
 
-    t = t + P.t_plot  # advance time by t_plot
+    t += P.t_plot  # advance time by t_plot
     plt.pause(0.05)
 
 # Keeps the program from closing until the user presses a button.
