@@ -31,7 +31,7 @@ while t < P.t_end:  # main simulation loop
 
     # update animation and data plots at rate t_plot
     animation.update(t, hummingbird.state)
-    dataPlot.update(t, hummingbird.state, y_ref, u)
+    dataPlot.update(t, hummingbird.state, u, y_ref)
 
     # the pause causes figure to be displayed during simulation
     plt.pause(0.0001)
